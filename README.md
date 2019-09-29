@@ -1,5 +1,5 @@
 ## react-vw-template
-vw 适配模板
+vw mobx适配模板
 
 ## 使用  
 
