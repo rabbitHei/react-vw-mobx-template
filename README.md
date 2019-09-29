@@ -44,4 +44,3 @@ public/index.html
     <!-- sdk -->
     <script src='https://s1.xmcdn.com/lib/jssdk/1.1.1/build/ly.js'></script>
 ```
-# this.props.history.push-edit-
