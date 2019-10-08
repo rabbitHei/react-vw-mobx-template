@@ -1,4 +1,4 @@
-## react-vw-template
+## react-vw-mobx-template
 vw mobx适配模板
 
 ## 使用  
