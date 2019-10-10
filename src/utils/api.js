@@ -1,10 +1,12 @@
 import { env } from '../constant';
 
 const URLMap = {
+  //接口
   base: {
     dev: '/anchor-read-web',
-    test: 'http://m.test.ximalaya.com/anchor-read-web',
-    pro: 'http://m.ximalaya.com/anchor-read-web'
+    test: '//m.test.ximalaya.com/anchor-read-web',
+    uat: '//m.uat.ximalaya.com/anchor-read-web',
+    pro: '//m.ximalaya.com/anchor-read-web'
   }
 }
 
