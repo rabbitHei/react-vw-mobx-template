@@ -1,5 +1,5 @@
 {
-  "name": "vw-template",
+  "name": "vw-mobx-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -149,6 +149,8 @@
     ]
   },
   "devDependencies": {
+    "@xmly/copy-code": "^1.3.5",
+    "@xmly/xmrep": "^1.1.19",
     "cssnano": "^4.1.7",
     "cssnano-preset-advanced": "^4.0.5",
     "fastclick": "^1.0.6",
@@ -158,6 +160,7 @@
     "postcss-px-to-viewport": "0.0.3",
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
+    "query-string": "^6.8.3",
     "vconsole": "^3.3.2"
   },
   "scripts": {
@@ -168,9 +171,9 @@
     "test": "node scripts/test.js"
   },
   "homepage": {
-    "pro": "www",
-    "uat": "uat",
-    "test": "test"
+    "pro": "//s1.xmcdn.com/yx/xxx/last/build/",
+    "uat": "//s1.uat.xmcdn.com/yx/xxx/last/build/",
+    "test": "//static2.test.ximalaya.com/yx/xxx/last/build/"
   },
   "xpm3": {
     "rep": "sr012018",

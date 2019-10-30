@@ -1,0 +1,22 @@
+.scroll-components-box {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    // -webkit-overflow-scrolling: auto;
+    // backface-visibility: hidden;
+    // perspective: 1000;
+    // transform: translate3d(0, 0, 0);
+    .content{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        // background-color: #fff;
+    }
+    .list {
+        flex-direction: column;
+        // background-color: #fff;
+    }
+}
+.disable.scroll-components-box {
+    overflow: hidden;
+}

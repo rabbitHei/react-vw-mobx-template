@@ -17,6 +17,7 @@ class Home extends Component {
         <img src={appImgs.back} alt="" />
         <p className="home" onClick={this.goEdit}>this is home page,go edit</p>
         <p className="home">{this.props.store.global.aa}</p>
+        <p className="less">{'less编译'}</p>
       </div>
     )
   }
