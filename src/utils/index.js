@@ -130,6 +130,37 @@ export const getUserInfo = (fn) => {//获取用户信息
   })
 }
 
+export const timeToString = (time, format) => {//时间转化
+  let t = new Date(time);
+  let tf = function (i) { return (i < 10 ? '0' : '') + i };
+  let tfNoZroe = function (i) { return i + '' };
+  return format.replace(/yyyy|MM|M|dd|HH|mm|ss/g, function (a) {
+    switch (a) {
+      case 'yyyy':
+        return tf(t.getFullYear());
+        break;
+      case 'MM':
+        return tf(t.getMonth() + 1);
+        break;
+      case 'M':
+        return tfNoZroe(t.getMonth() + 1);
+        break;
+      case 'mm':
+        return tf(t.getMinutes());
+        break;
+      case 'dd':
+        return tf(t.getDate());
+        break;
+      case 'HH':
+        return tf(t.getHours());
+        break;
+      case 'ss':
+        return tf(t.getSeconds());
+        break;
+    };
+  });
+}
+
 export const numCalc = (num) => {//数字默认转化
   let resuilt = '';
   if(+num&&num>=10){
@@ -287,5 +318,19 @@ export const loadJs = (srcEnd)=> {//手动加载JS
   script.type = "text/javascript";
   script.src = srcEnd;
   document.getElementsByTagName("body")[0].appendChild(script);
+}
+
+export const showLoading = () => {
+  window.ly.invokeApp && window.ly.invokeApp("ui.showLoading", {
+    text: "", //loading显示的字符，空表示不显示文字
+    showIcon: true, //是否显示icon，默认true
+    success: function() {}
+  });
+}
+
+export const hideLoading = () => {
+  window.ly.invokeApp && window.ly.invokeApp("ui.hideLoading", {
+    success: function() {}
+  });
 }
 

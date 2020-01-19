@@ -6,3 +6,4 @@ export const inWeixin = navigator.userAgent.toLowerCase().indexOf('micromessenge
 export const winW= window.innerWidth;//屏幕宽
 export const winH = window.innerHeight;//屏幕高
 export const rate = window.innerWidth/375;//比率
+export const OS = navigator.userAgent.toLowerCase().indexOf('android') != -1 ? 'android':'ios';//安卓 or IOS

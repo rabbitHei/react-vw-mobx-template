@@ -21,6 +21,8 @@ window.addEventListener('load',()=>{//加载完才不会报错
       // "storage.getItem",
       // "storage.setItem",
       "ui.input",
+      "ui.showLoading",
+      "ui.hideLoading"
     ]
   });
 },false);
