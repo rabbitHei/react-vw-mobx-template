@@ -150,7 +150,7 @@
   },
   "devDependencies": {
     "@xmly/copy-code": "^1.3.5",
-    "@xmly/xmrep": "^1.1.19",
+    "@xmly/xmrep": "^1.2.5",
     "cssnano": "^4.1.7",
     "cssnano-preset-advanced": "^4.0.5",
     "fastclick": "^1.0.6",
