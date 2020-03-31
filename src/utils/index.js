@@ -161,22 +161,57 @@ export const timeToString = (time, format) => {//时间转化
   });
 }
 
-export const numCalc = (num) => {//数字默认转化
-  let resuilt = '';
-  if(+num&&num>=10){
-      if(num<1000){
-          resuilt = num
-      }else if(num<10000) {
-          resuilt = Math.floor(num/1000) + '.' + Math.floor(num%1000/100) + 'K'
-      }else if(num<1000000){
-          resuilt = Math.floor(num/10000) + '.' + Math.floor(num%10000/1000) + 'W'
-      }else {
-          resuilt = '100W+' 
-      }
-  }else {
-      resuilt = +num || 0;
+export const numCalc = (num, unit, fixed) => {//数字默认转化
+  //num 传入数 fixed 保留小数位数 unit 单位{} k_del:true 代表删除千的匹配
+  let result = 0;
+  let unitTmp = Object.assign({k: '千',w:'万',kw:'千万',y:'亿'}, unit || {});
+  let fixedTmp = fixed === 0 ? 0 : fixed ? fixed : 1;
+
+  if(num>=0){
+    result = num;
+    if(num<1000){
+      result = num
+    }else if(num<10000) {//千
+      if(unitTmp.k_del)return num;
+      result = ratioCalc(num/1000,fixedTmp) + unitTmp.k;
+    }else if(num<10000000){//万
+      if(unitTmp.w_del)return num;
+      result = ratioCalc(num/10000,fixedTmp) + unitTmp.w;
+    }else if(num<100000000){//千万
+      if(unitTmp.kw_del)return num;
+      result = ratioCalc(num/10000000,fixedTmp) + unitTmp.kw;
+    }else if(num>=100000000){//亿
+      if(unitTmp.kw_del)return num;
+      result = ratioCalc(num/100000000,fixedTmp) + unitTmp.y;
+    }
   }  
-  return  resuilt;
+  return  result;
+}
+
+export const ratioCalc=(num,fixed)=>{//保留小数 & 去末尾0处理 1.0 -> 1
+  //num 传入浮点数 fixed 保留小数位数
+  let tmpNum = '0';
+  if(num&&num!==0){
+      num = Math.abs(num);
+      tmpNum =  num+'';
+      let index = (num+'').indexOf('.');
+      if(index>0){
+          let arr = tmpNum.split('');
+          let left = tmpNum.slice(0,index);
+          let right = '';
+          arr.forEach((v,i)=>{
+              if(i>index&&i<=index+fixed){
+                  right = right + v;
+              }
+          });
+          if(right>0){
+              tmpNum = left + '.' + right;
+          }else {
+              tmpNum = left;
+          }
+      }
+  }
+  return tmpNum
 }
 
 export const timeCalc=(time)=>{//计算时间距离现在长久
