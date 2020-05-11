@@ -162,30 +162,25 @@ export const timeToString = (time, format) => {//时间转化
 }
 
 export const numCalc = (num, unit, fixed) => {//数字默认转化
-  //num 传入数 fixed 保留小数位数 unit 单位{} k_del:true 代表删除千的匹配
-  let result = 0;
-  let unitTmp = Object.assign({k: '千',w:'万',kw:'千万',y:'亿'}, unit || {});
-  let fixedTmp = fixed === 0 ? 0 : fixed ? fixed : 1;
-
-  if(num>=0){
-    result = num;
-    if(num<1000){
-      result = num
-    }else if(num<10000) {//千
-      if(unitTmp.k_del)return num;
-      result = ratioCalc(num/1000,fixedTmp) + unitTmp.k;
-    }else if(num<10000000){//万
-      if(unitTmp.w_del)return num;
-      result = ratioCalc(num/10000,fixedTmp) + unitTmp.w;
-    }else if(num<100000000){//千万
-      if(unitTmp.kw_del)return num;
-      result = ratioCalc(num/10000000,fixedTmp) + unitTmp.kw;
-    }else if(num>=100000000){//亿
-      if(unitTmp.kw_del)return num;
-      result = ratioCalc(num/100000000,fixedTmp) + unitTmp.y;
-    }
-  }  
-  return  result;
+   //num 传入数 fixed 保留小数位数 unit 单位{}
+   let result = 0;
+   let unitTmp = Object.assign({ k: '', w: '', kw: '', y: '' }, unit || {});
+   let fixedTmp = fixed === 0 ? 0 : fixed ? fixed : 1;
+ 
+   if (num >= 0) {
+     if(num >= 100000000 && unit.y) {//亿
+       result = ratioCalc(num / 100000000, fixedTmp) + unitTmp.y;
+     }else if (num >= 10000000 && unit.kw) {//千万
+       result = ratioCalc(num / 10000000, fixedTmp) + unitTmp.kw;
+     }else if (num >= 10000 && unit.w) {//万
+       result = ratioCalc(num / 10000, fixedTmp) + unitTmp.w;
+     }else if (num >= 1000 && unit.k) {//千
+       result = ratioCalc(num / 1000, fixedTmp) + unitTmp.k;
+     }else {
+       result = num
+     }
+   }
+   return result;
 }
 
 export const ratioCalc=(num,fixed)=>{//保留小数 & 去末尾0处理 1.0 -> 1
