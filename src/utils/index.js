@@ -454,7 +454,7 @@ export const endTime = (endTime) => {
   let str = "";
   year && (str += `${year}年`);
   month && (str += `${month}月`);
-  day && (str += `${day}月`);
+  day && (str += `${day}日`);
 
   return str;
 };
