@@ -185,7 +185,7 @@ export const numCalc = (num, unit, fixed) => {
   let unitTmp = Object.assign({ k: "", w: "", kw: "", y: "" }, unit || {});
   let fixedTmp = fixed === 0 ? 0 : fixed ? fixed : 1;
 
-  if (num >= 0) {
+  if (num > 0) {
     if (num >= 100000000 && unit.y) {
       //亿
       result = ratioCalc(num / 100000000, fixedTmp) + unitTmp.y;
