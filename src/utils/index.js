@@ -209,7 +209,7 @@ export const ratioCalc = (num, fixed) => {
   //保留小数 & 去末尾0处理 1.0 -> 1
   //num 传入浮点数 fixed 保留小数位数
   let tmpNum = "0";
-  if (num && num !== 0) {
+  if (num) {
     num = Math.abs(num);
     tmpNum = num + "";
     let index = (num + "").indexOf(".");

@@ -39,7 +39,7 @@ a {text-decoration: none;color: #1890ff;}
 a:hover {color: #1890ff;}
 a:link {text-decoration: none;}
 
-.clear:after,.clear::before {
+.clear::after,.clear::before {
   content: "";
   height: 0;
   line-height: 0;
